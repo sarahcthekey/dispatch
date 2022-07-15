@@ -67,7 +67,7 @@ function login(to, from, next) {
                 redirect_uri: request.redirectUri,
                 grant_type: GRANT_TYPE_AUTHORIZATION_CODE,
                 code: response.code,
-                extras: { client_secret: clientSecret },
+                extras: { client_secret: clientSecret }
             })
             getCfg().then((cfg) => {
                 tokenHandler
