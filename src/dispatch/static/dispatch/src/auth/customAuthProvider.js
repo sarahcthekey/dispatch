@@ -64,11 +64,10 @@ function login(to, from, next) {
         if (response) {
             let req = new TokenRequest({
                 client_id: clientId,
-                client_secret: clientSecret,
                 redirect_uri: request.redirectUri,
                 grant_type: GRANT_TYPE_AUTHORIZATION_CODE,
                 code: response.code,
-                extras: { code_verifier: request.internal["code_verifier"] },
+                extras: { client_secret: clientSecret },
             })
             getCfg().then((cfg) => {
                 tokenHandler
